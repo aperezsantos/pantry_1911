@@ -28,7 +28,7 @@ class RecipeTest < Minitest::Test
     assert_equal ({ingredient1 => 2, ingredient2 => 8}), recipe.ingredients_required
   end
 
-  def test_it_can_return_amount_required_per_ingredent
+  def test_it_can_return_amount_required_per_ingredient
     ingredient1 = Ingredient.new("Cheese", "C", 100)
     ingredient2 = Ingredient.new("Macaroni", "oz", 30)
     recipe = Recipe.new("Mac and Cheese")
@@ -38,6 +38,16 @@ class RecipeTest < Minitest::Test
 
     assert_equal 2, recipe.amount_required(ingredient1)
     assert_equal 8, recipe.amount_required(ingredient2)
+  end
 
+  def test_it_can_return_ingredients
+    ingredient1 = Ingredient.new("Cheese", "C", 100)
+    ingredient2 = Ingredient.new("Macaroni", "oz", 30)
+    recipe = Recipe.new("Mac and Cheese")
+
+    recipe.add_ingredient(ingredient1, 2)
+    recipe.add_ingredient(ingredient2, 8)
+
+    assert_equal [ingredient1, ingredient2], recipe.ingredients
   end
 end
