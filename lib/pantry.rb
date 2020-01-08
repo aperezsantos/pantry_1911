@@ -11,7 +11,6 @@ class Pantry
 
   def restock(ingredient_name, quantity)
     @stock[ingredient_name] = quantity
-  require "pry"; binding.pry
   end
 
 end
